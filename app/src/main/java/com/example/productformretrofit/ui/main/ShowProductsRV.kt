@@ -1,4 +1,4 @@
-package com.example.productformretrofit
+package com.example.productformretrofit.ui.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,20 +10,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.productformretrofit.VMrepository.FactoryVM
-import com.example.productformretrofit.VMrepository.ViewModelProduct
-import com.example.productformretrofit.adapterHolder.AdapterProduct
+import com.example.productformretrofit.R
+import com.example.productformretrofit.ui.viewModel.ViewModelProduct
 import com.example.productformretrofit.databinding.FragmentShowProductsRVBinding
 import com.example.productformretrofit.modle.StatesUI
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class ShowProductsRV : Fragment() {
   private lateinit var binding:FragmentShowProductsRVBinding
-  private lateinit var viewModel : ViewModelProduct
-  private lateinit var adapter :AdapterProduct
+  private lateinit var adapter : AdapterProduct
+
+  private val viewModel : ViewModelProduct by activityViewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,11 +58,6 @@ class ShowProductsRV : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentShowProductsRVBinding.inflate(inflater,container ,false)
-
-
-        val app = requireActivity().application as AppProduct
-        val factory = FactoryVM(app.repository)
-        viewModel = ViewModelProvider(this, factory)[ViewModelProduct::class.java]
 
         adapter = AdapterProduct{
             productId ->

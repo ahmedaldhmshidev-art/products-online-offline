@@ -1,7 +1,6 @@
-package com.example.productformretrofit.APIretrofit
+package com.example.productformretrofit.dataa.remote
 
 import com.example.productformretrofit.modle.Product
-import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 

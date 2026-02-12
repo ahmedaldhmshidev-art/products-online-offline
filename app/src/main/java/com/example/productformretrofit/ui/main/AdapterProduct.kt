@@ -1,4 +1,4 @@
-package com.example.productformretrofit.adapterHolder
+package com.example.productformretrofit.ui.main
 
 import android.view.LayoutInflater
 import android.view.View
@@ -19,7 +19,7 @@ class AdapterProduct(private val onClick : (Int) -> Unit): RecyclerView.Adapter<
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterProduct.HolderProduct
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderProduct
     {
         val view = LayoutInflater
             .from(parent.context)
@@ -27,7 +27,7 @@ class AdapterProduct(private val onClick : (Int) -> Unit): RecyclerView.Adapter<
         return HolderProduct(view)
     }
 
-    override fun onBindViewHolder(holder: AdapterProduct.HolderProduct, position: Int)
+    override fun onBindViewHolder(holder: HolderProduct, position: Int)
     {
         val data= _products[position]
         holder.build(data)
@@ -38,6 +38,8 @@ class AdapterProduct(private val onClick : (Int) -> Unit): RecyclerView.Adapter<
 
     inner class HolderProduct(itemView : View) : RecyclerView.ViewHolder(itemView) {
         private val binding = ItemShowProductBinding.bind(itemView)
+
+//        val tvTitle = itemView.findViewById<>(R.id.tvTitle_id_card)
 
         fun build(product : Product){
             binding.tvTitleIdCard .text = product.title

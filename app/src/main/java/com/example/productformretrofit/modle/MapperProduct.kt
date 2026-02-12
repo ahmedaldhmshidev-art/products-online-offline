@@ -1,8 +1,8 @@
 package com.example.productformretrofit.modle
 
-import com.example.productformretrofit.roomDataBase.ProductEntity
+import com.example.productformretrofit.dataa.db.ProductEntity
 // تحويل من بيانات وصلت من الانترنت الي بيانات قابلة لتخزين محلي
-fun Product.toEntity():ProductEntity {
+fun Product.toEntity(): ProductEntity {
     return ProductEntity(
         idEntity = id ,
         titleEntity = title,

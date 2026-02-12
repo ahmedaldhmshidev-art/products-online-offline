@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/showProductsRV"
 
-        android:name="com.example.productformretrofit.ShowProductsRV"
+        android:name="com.example.productformretrofit.ui.main.ShowProductsRV"
         android:label="Products"
         tools:layout="@layout/fragment_show_products_r_v"
         >
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/shoewDetailsProduct"
-        android:name="com.example.productformretrofit.ShowDetailsProduct"
+        android:name="com.example.productformretrofit.ui.main.ShowDetailsProduct"
         android:label="Product Details"
         tools:layout="@layout/fragment_shoew_details_product">
 

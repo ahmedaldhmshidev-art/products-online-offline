@@ -1,4 +1,4 @@
-package com.example.productformretrofit.APIretrofit
+package com.example.productformretrofit.dataa.remote
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

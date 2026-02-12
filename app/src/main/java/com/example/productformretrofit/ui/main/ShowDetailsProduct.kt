@@ -1,4 +1,4 @@
-package com.example.productformretrofit
+package com.example.productformretrofit.ui.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,18 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
-import com.example.productformretrofit.VMrepository.FactoryVM
-import com.example.productformretrofit.VMrepository.RepositoryProduct
-import com.example.productformretrofit.VMrepository.ViewModelProduct
+import com.example.productformretrofit.ui.viewModel.ViewModelProduct
 import com.example.productformretrofit.databinding.FragmentShoewDetailsProductBinding
 import com.example.productformretrofit.modle.StatesUI
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ShowDetailsProduct : Fragment() {
     private lateinit var binding: FragmentShoewDetailsProductBinding
-    private lateinit var viewModel : ViewModelProduct
+
+   private  val viewModel : ViewModelProduct by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentShoewDetailsProductBinding.inflate(inflater , container , false)
@@ -27,9 +28,6 @@ class ShowDetailsProduct : Fragment() {
         val productId = args.productId
 
 
-        val app = requireActivity().application as AppProduct
-        val factory = FactoryVM(app.repository)
-        viewModel = ViewModelProvider(this, factory)[ViewModelProduct::class.java]
 
         viewModel.loadProductDetails(productId)
 

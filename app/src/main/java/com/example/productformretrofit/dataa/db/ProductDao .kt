@@ -1,4 +1,4 @@
-package com.example.productformretrofit.roomDataBase
+package com.example.productformretrofit.dataa.db
 
 import androidx.room.Dao
 import androidx.room.Insert

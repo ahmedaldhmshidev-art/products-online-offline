@@ -1,14 +1,18 @@
-package com.example.productformretrofit.VMrepository
+package com.example.productformretrofit.ui.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.productformretrofit.dataa.RepositoryProduct
 import com.example.productformretrofit.modle.Product
 import com.example.productformretrofit.modle.StatesUI
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ViewModelProduct(val repository : RepositoryProduct) : ViewModel() {
+@HiltViewModel
+class ViewModelProduct @Inject constructor(val repository : RepositoryProduct) : ViewModel() {
     // ====== State للقائمة ======
     private val _productsState =
         MutableLiveData<StatesUI<List<Product>>>()
